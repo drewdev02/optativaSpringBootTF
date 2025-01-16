@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @Slf4j
 @RestController
@@ -19,7 +18,7 @@ public class CategoryController {
 
     @GetMapping
     public ResponseEntity<?> getAllCategories() {
-        List<CategoryEntity> categories = categoryService.getAllCategories();
+        var categories = categoryService.getAllCategories();
         return ResponseEntity.ok(categories);
     }
 
@@ -44,10 +43,6 @@ public class CategoryController {
     @GetMapping("/{name}")
     public ResponseEntity<?> getCategoryByName(@PathVariable String name) {
         var category = categoryService.getCategoryByName(name);
-        if (category != null) {
-            return ResponseEntity.ok(category);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        return ResponseEntity.ok(category);
     }
 }

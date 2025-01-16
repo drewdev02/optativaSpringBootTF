@@ -7,6 +7,7 @@ import org.adrewdev.optativatf.repository.CategoryRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Service
@@ -30,7 +31,7 @@ public class CategoryService {
         categoryRepository.deleteById(categoryId);
     }
 
-    public CategoryEntity getCategoryByName(String name) {
+    public Optional<CategoryEntity> getCategoryByName(String name) {
         return categoryRepository.findByName(name);
     }
 }
