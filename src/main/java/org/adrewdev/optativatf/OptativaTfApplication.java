@@ -9,5 +9,4 @@ public class OptativaTfApplication {
     public static void main(String[] args) {
         SpringApplication.run(OptativaTfApplication.class, args);
     }
-
 }
